@@ -9,8 +9,7 @@ from datetime import timedelta, datetime, time, date
 
 class TimeOfDay(time):
     def __new__(cls, hour=0, minute=0, second=0, microsecond=0):
-        self = time.__new__(cls, hour, minute, second,
-                                                microsecond, None)
+        self = time.__new__(cls, hour, minute, second, microsecond, None)
         return self
 
     def __add__(self, other):
@@ -18,9 +17,7 @@ class TimeOfDay(time):
         if not isinstance(other, timedelta):
             return NotImplemented
 
-        delta = timedelta(hours=self.hour, minutes=self.minute,
-                            seconds=self.second,
-                            microseconds=self.microsecond)
+        delta = timedelta(hours=self.hour, minutes=self.minute, seconds=self.second, microseconds=self.microsecond)
 
         delta += other
 
